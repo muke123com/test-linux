@@ -1,7 +1,7 @@
-/*/node_modules/*
-/*/uploads/*
-/*/bin/*
-/**/mp3/*
+/node_modules/*
+/uploads/*
+/bin/*
+/mp3/*
 /.settings/*
 /.project
 /.buildpath
