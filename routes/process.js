@@ -1,11 +1,14 @@
 var express = require('express');
+var os = require('os');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-	console.log(process);
-	res.send({
-		"aaa": "111"
-	});
+	console.log();
+	res.end();
+});
+
+router.get('/getip', function(req, res, next) {
+	res.send(os.networkInterfaces());
 });
 
 module.exports = router;
