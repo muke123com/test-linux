@@ -12,10 +12,10 @@ router.get('/', function(req, res, next) {
 	        console.log('error:'+stderr);
 	        res.end();
 	    } else {
-	        console.log(stdout);
-	        res.send({
+	    	stdout.split("\n").join("<br />").split("\t").join("&nbsp;&nbsp;");
+	        res.render("index", {
 	        	msg: stdout
-	        });
+	        })
 	    }
 	});
 });
