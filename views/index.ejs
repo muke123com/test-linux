@@ -26,7 +26,8 @@
     				},
     				type:"post",
     				success: function(res){
-    					$(".linux-log").append("<p>"+res.msg+"</p>");
+    					var msg = res.msg.split("\n").join("<br>");
+    					$(".linux-log").append("<p>" + msg + "</p>");
     				}
     			});
     		}
