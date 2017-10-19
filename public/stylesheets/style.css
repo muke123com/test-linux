@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -14,4 +13,19 @@ a {
 	border: 1px solid #aaa;
 	border-radius: 3px;
 	background-color: #fff;
+}
+.linux-log{
+	margin: 15px;
+	padding: 15px;
+	color: #fff;
+	background-color: #000;
+	border-radius: 3px;
+}
+#shell-input{
+	margin: 15px;
+	padding: 5px;
+	width: 200px;
+	height: 20px;
+	border-radius: 2px;
+	border: 1px solid #aaa;
 }

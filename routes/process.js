@@ -30,12 +30,15 @@ router.post('/shell', function(req, res, next) {
 	var shell = req.body.shell;
 	exec(shell, function(err,stdout,stderr){
 	    if(err) {
+	        stderr = stderr.toString();
 	        console.log('error:'+stderr);
 	        res.send({
+	        	status: 0,
 	        	error: stderr
 	        })
 	    } else {
 	        res.send({
+	        	status: 1,
 	        	msg: stdout
 	        })
 	    }
