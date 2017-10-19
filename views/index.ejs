@@ -30,10 +30,12 @@
     				type:"post",
     				success: function(res){
     					if(res.status == 0){
-    						
-    					}
+    						var msg = res.error;
+    						$(".linux-log").append("<p>" + msg + "</p>");
+    					}else{
     						var msg = res.msg.split("\n").join("<br>");
-    					$(".linux-log").append("<p>" + msg + "</p>");
+    						$(".linux-log").append("<p>" + msg + "</p>");
+    					}
     					$("#shell-input").val("");
     				}
     			});
