@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 	    } else {
 	    	stdout.split("\n").join("<br />").split("\t").join("&nbsp;&nbsp;");
 	    	console.log(stdout);
-	        res.render("index", {
+	        res.render("process", {
 	        	msg: stdout
 	        })
 	    }

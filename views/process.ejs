@@ -1,0 +1,46 @@
+<%
+	var title = "process";
+%>
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="utf-8" />
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="tips"><%=msg %></div>
+    <div class="linux-log">
+    	
+    </div>
+    <input type="text" id="shell-input" />
+    <script>
+    	$("#shell-input").keyup(function(e){
+    		if(e.keyCode == 13){
+    			var shell = $(this).val();
+    			if(shell == "clear"){
+    				$(".linux-log").html("");
+    			}
+    			$.ajax({
+    				url:"/process/shell",
+    				data: {
+    					shell: shell
+    				},
+    				type:"post",
+    				success: function(res){
+    					if(res.status == 0){
+    						var msg = res.error;
+    						$(".linux-log").append("<p>" + msg + "</p>");
+    					}else{
+    						var msg = res.msg.split("\n").join("<br>");
+    						$(".linux-log").append("<p>" + msg + "</p>");
+    					}
+    					$("#shell-input").val("");
+    				}
+    			});
+    		}
+    	})
+    </script>
+  </body>
+</html>
