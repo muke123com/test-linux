@@ -46,7 +46,16 @@ router.post('/shell', function(req, res, next) {
 });
 
 router.get('/getip', function(req, res, next) {
-	res.send(os.networkInterfaces());
+	function getClientIp(req) {
+        return req.headers['x-forwarded-for'] ||
+        req.connection.remoteAddress ||
+        req.socket.remoteAddress ||
+        req.connection.socket.remoteAddress;
+    };
+    const ip = getClientIp(req);
+    res.send({
+    	"ip": ip
+    })
 });
 
 module.exports = router;
